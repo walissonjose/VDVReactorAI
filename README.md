@@ -35,12 +35,12 @@ No problema de van der Vusse, temos um sistema de quatro EDOs que descrevem a di
 
 Para aplicar o método de Euler no problema de van der Vusse, precisamos dividir o intervalo de tempo em pequenos incrementos, digamos, $\Delta t$. Então, podemos aproximar as soluções para as concentrações $C_A$, $C_B$, $C_C$ e $C_D$ no próximo intervalo de tempo, $t+\Delta t$, como:
 
-$\begin{aligned}
+$$\begin{aligned}
 C_{A}(t+\Delta t) &\approx C_{A}(t) + \Delta t \frac{dC_A}{dt}(t) \
 C_{B}(t+\Delta t) &\approx C_{B}(t) + \Delta t \frac{dC_B}{dt}(t) \
 C_{C}(t+\Delta t) &\approx C_{C}(t) + \Delta t \frac{dC_C}{dt}(t) \
 C_{D}(t+\Delta t) &\approx C_{D}(t) + \Delta t \frac{dC_D}{dt}(t)
-\end{aligned}$
+\end{aligned}$$
 
 onde $\frac{dC_A}{dt}(t)$, $\frac{dC_B}{dt}(t)$, $\frac{dC_C}{dt}(t)$ e $\frac{dC_D}{dt}(t)$ são os valores calculados a partir das equações diferenciais do problema de van der Vusse no tempo $t$.
 
