@@ -25,6 +25,7 @@ k3 = 0.5
 A = 5
 Cv = 7 
 
+# Start concentrations of components 
 Ca0 = 0.6
 Cb0 = 0
 Cc0 = 0 
@@ -61,7 +62,7 @@ Cc.append(Cc0)
 Cd.append(Cd0)
 time.append(0)
 
-# Equations
+# Equations Iteration
 for t in range(tf-1):
     Ca.append(Ca[t] + ts*((Fvol0*Ca0)/V[t] - (Fvol0*Ca[t])/V[t] - k1*Ca[t] - (2*k3*(Ca[t])**2)))
     Cb.append(Cb[t] + ts*((Fvol0*Cb0)/V[t] - (Fvol0*Cb[t])/V[t] + (k1*Ca[t]) - (k2*Cb[t])))
