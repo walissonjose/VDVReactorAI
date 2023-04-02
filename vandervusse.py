@@ -1,16 +1,16 @@
-# Este código implementa uma solução numérica para o sistema de equações diferenciais
-# que descrevem a cinética química da reação de van der Vusse em um reator químico. A
-# reação química é dada por:
+# This code implements a numerical solution to the system of differential equations
+# that describe the chemical kinetics of the van der Vusse reaction in a chemical reactor. 
+# The chemical reaction is given by:
 # 2 A --> B
 # B + C --> 2 C
 # A --> D
-# O código utiliza a solução numérica por diferenças finitas para calcular as 
-# concentrações dos reagentes e produtos em função do tempo. As constantes cinéticas 
-# da reação e outras propriedades do sistema são definidas no início do código, 
-# juntamente com as condições iniciais para as concentrações e o volume do reator.
-# O resultado final é um gráfico da evolução das concentrações de cada espécie química 
-# em função do tempo, usando a biblioteca matplotlib para visualização de dados. 
-# As concentrações são plotadas em diferentes cores para facilitar a distinção.
+# The code uses numerical finite difference solution to calculate the concentrations 
+# of reactants and products as a function of time. The reaction rate constants and 
+# other properties of the system are defined at the beginning of the code, along with 
+# the initial conditions for the concentrations and reactor volume.
+# The final result is a plot of the evolution of the concentrations of each chemical 
+# species as a function of time, using the matplotlib library for data visualization. 
+# The concentrations are plotted in different colors to facilitate distinction.
 
 import matplotlib.pyplot as plt
 
@@ -18,7 +18,7 @@ import pandas as pd
 
 plt.style.use('seaborn-poster')
 
-#Constantes
+# Constants
 k1 = 10
 k2 = 1
 k3 = 0.5
@@ -30,17 +30,17 @@ Cb0 = 0
 Cc0 = 0 
 Cd0 = 0 
 
-#Vasão volumétrica
+# Volumetric flow rate
 Fvol0 = 0.00278 #m^3/s
 
-#Isotermico e isobarico
+# Isothermic and isobaric
 T = 550
 P = 1
 
-#nivel do reator 
+# Reactor level
 h0 = 0.5 
 
-#definição dos passos
+# Definition of steps
 ts = 0.001
 te = 10
 
@@ -61,7 +61,7 @@ Cc.append(Cc0)
 Cd.append(Cd0)
 time.append(0)
 
-#Equacoes
+# Equations
 for t in range(tf-1):
     Ca.append(Ca[t] + ts*((Fvol0*Ca0)/V[t] - (Fvol0*Ca[t])/V[t] - k1*Ca[t] - (2*k3*(Ca[t])**2)))
     Cb.append(Cb[t] + ts*((Fvol0*Cb0)/V[t] - (Fvol0*Cb[t])/V[t] + (k1*Ca[t]) - (k2*Cb[t])))
@@ -78,8 +78,8 @@ plt.plot(time, Cc, 'bo--', label='Approximate', color = 'blue')
 plt.plot(time, Cd, 'bo--', label='Approximate', color = 'orange')
 plt.show()
 
-#Criar dataframe com as variáveis de interesse
+# Create dataframe with the variables of interest
 df = pd.DataFrame({'time': time, 'Ca': Ca, 'Cb': Cb, 'Cc': Cc, 'Cd': Cd})
 
-#Salvar dataframe em um arquivo CSV
+# Save data frame to a .csv file
 df.to_csv('registros.csv', index=False)
