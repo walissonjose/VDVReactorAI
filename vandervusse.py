@@ -14,6 +14,8 @@
 
 import matplotlib.pyplot as plt
 
+import pandas as pd
+
 plt.style.use('seaborn-poster')
 
 #Constantes
@@ -49,7 +51,7 @@ Ca = []
 Cb = []
 Cc = []
 Cd = []
-t = []
+time = []
 
 V.append(h0*A)
 h.append(h0)
@@ -57,21 +59,27 @@ Ca.append(Ca0)
 Cb.append(Cb0)
 Cc.append(Cc0)
 Cd.append(Cd0)
-t.append(0)
+time.append(0)
 
 #Equacoes
-for i in range(tf-1):
-    Ca.append(Ca[i] + ts*((Fvol0*Ca0)/V[i] - (Fvol0*Ca[i])/V[i] - k1*Ca[i] - (2*k3*(Ca[i])**2)))
-    Cb.append(Cb[i] + ts*((Fvol0*Cb0)/V[i] - (Fvol0*Cb[i])/V[i] + (k1*Ca[i]) - (k2*Cb[i])))
-    Cc.append(Cc[i] + ts*((Fvol0*Cc0)/V[i] - (Fvol0*Cc[i])/V[i] + (k2*Cb[i])))
-    Cd.append(Cd[i] + ts*((Fvol0*Cd0)/V[i] - (Fvol0*Cd[i])/V[i] + (k3*Ca[i]**2)))
-    h.append(h[i] + ts*(Fvol0/A - Cv*(h[i])**1.5/A))
-    V.append(h[i]*A)
-    t.append(t[i] + ts)
+for t in range(tf-1):
+    Ca.append(Ca[t] + ts*((Fvol0*Ca0)/V[t] - (Fvol0*Ca[t])/V[t] - k1*Ca[t] - (2*k3*(Ca[t])**2)))
+    Cb.append(Cb[t] + ts*((Fvol0*Cb0)/V[t] - (Fvol0*Cb[t])/V[t] + (k1*Ca[t]) - (k2*Cb[t])))
+    Cc.append(Cc[t] + ts*((Fvol0*Cc0)/V[t] - (Fvol0*Cc[t])/V[t] + (k2*Cb[t])))
+    Cd.append(Cd[t] + ts*((Fvol0*Cd0)/V[t] - (Fvol0*Cd[t])/V[t] + (k3*Ca[t]**2)))
+    h.append(h[t] + ts*(Fvol0/A - Cv*(h[t])**1.5/A))
+    V.append(h[t]*A)
+    time.append(time[t] + ts)
     
 plt.figure(figsize = (12, 8))
-plt.plot(t, Ca, 'bo--', label='Approximate', color = 'green')
-plt.plot(t, Cb, 'bo--', label='Approximate', color = 'red')
-plt.plot(t, Cc, 'bo--', label='Approximate', color = 'blue')
-plt.plot(t, Cd, 'bo--', label='Approximate', color = 'yellow')
+plt.plot(time, Ca, 'bo--', label='Approximate', color = 'green')
+plt.plot(time, Cb, 'bo--', label='Approximate', color = 'purple')
+plt.plot(time, Cc, 'bo--', label='Approximate', color = 'blue')
+plt.plot(time, Cd, 'bo--', label='Approximate', color = 'orange')
 plt.show()
+
+#Criar dataframe com as variáveis de interesse
+df = pd.DataFrame({'time': time, 'Ca': Ca, 'Cb': Cb, 'Cc': Cc, 'Cd': Cd})
+
+#Salvar dataframe em um arquivo CSV
+df.to_csv('registros.csv', index=False)
