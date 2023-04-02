@@ -12,12 +12,12 @@ O modelo é amplamente utilizado na indústria química para projetar e otimizar
 A implementação do modelo de Van der Vusse pode ser realizada por meio de simulações numéricas em Python ou outras linguagens de programação. É uma técnica poderosa para prever o comportamento de uma reação química em diferentes condições e para otimizar o processo de produção.
 
 
-$\begin{aligned}
+$$\begin{aligned}
 \text{Balanço de massa volumétrico global: } \frac{dV}{dt} = F_{in} - F_{out} \\
 \text{Equação da válvula: } F_{out} = C_v \sqrt{h} \\
 \text{Balanço para o componente A: } \theta \frac{dC_A}{dt} &= C_{A,in} - C_{A,out} - \theta r_1 - 2\theta r_3 \\
 \text{Balanço para o componente B: } \theta \frac{dC_B}{dt} &= C_{B,in} - C_{B,out} + \theta r_1 - \theta r_2 \\
 \text{Balanço para o componente C: } \theta \frac{dC_C}{dt} &= C_{C,in} - C_{C,out} + \theta r_2 \\
 \text{Balanço para o componente D: } \theta \frac{dC_D}{dt} &= C_{D,in} - C_{D,out} + \theta r_3
-\end{aligned}$
+\end{aligned}$$
 
