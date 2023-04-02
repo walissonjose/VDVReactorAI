@@ -13,17 +13,17 @@ A implementação do modelo de Van der Vusse pode ser realizada por meio de simu
 
 
 $\begin{aligned}
-Balanço de massa volumétrico global: \frac{dV}{dt} = F_{in} - F_{out}
+\text{Balanço de massa volumétrico global: } \frac{dV}{dt} = F_{in} - F_{out}
 
-Equação da válvula: F_{out} = C_v \sqrt{h}
+{Equação da válvula:} F_{out} = C_v \sqrt{h}
 
-Balanço para o componente A: \theta \frac{dC_A}{dt} &= C_{A,in} - C_{A,out} - \theta r_1 - 2\theta r_3 
+\text{Balanço para o componente A:} \theta \frac{dC_A}{dt} &= C_{A,in} - C_{A,out} - \theta r_1 - 2\theta r_3 
 
-Balanço para o componente B: \theta \frac{dC_B}{dt} &= C_{B,in} - C_{B,out} + \theta r_1 - \theta r_2 
+\text{Balanço para o componente B:} \theta \frac{dC_B}{dt} &= C_{B,in} - C_{B,out} + \theta r_1 - \theta r_2 
 
-Balanço para o componente C: \theta \frac{dC_C}{dt} &= C_{C,in} - C_{C,out} + \theta r_2 
+\text{Balanço para o componente C:} \theta \frac{dC_C}{dt} &= C_{C,in} - C_{C,out} + \theta r_2 
 
-Balanço para o componente D: \theta \frac{dC_D}{dt} &= C_{D,in} - C_{D,out} + \theta r_3
+\text{Balanço para o componente D:} \theta \frac{dC_D}{dt} &= C_{D,in} - C_{D,out} + \theta r_3
 
 \end{aligned}$
 
