@@ -22,3 +22,6 @@ $$\begin{align*}
 \end{align*}
 $$
 
+onde o teta $\theta$ representa o tempo de residência da subtância $C_A$ no tanque. 
+
+O objetivo do código em "vandervusse.py" é gerar um arquivo csv que posteriormente será utilizado para treinar a inteligência artificial.
